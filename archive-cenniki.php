@@ -10,7 +10,7 @@
             
             <th scope="col">Produkt</th>
             <th scope="col">Cena</th>
-            <th scope="col">Edycja</th>
+            <th scope="col"><Details></Details></th>
         
         </tr>
     </thead>
@@ -21,7 +21,7 @@
            
             <td><?php the_title() ?></td>
             <td><?php the_field('cena') ?> euro</td>
-            <td> <a href="<?php the_permalink(); ?>"> Zobacz szczegóły</a></td>
+            <td> <a href="<?php the_permalink(); ?>"> Zobacz</a></td>
            
         </tr>
         <?php endwhile; ?>
