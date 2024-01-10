@@ -85,7 +85,7 @@ add_action('wp_enqueue_scripts','boot_scripts');
  */
 function add_acf_columns ( $columns ) {
     return array_merge ( $columns, array ( 
-      'cena' => __ ( 'Cena' )
+      'cena_netto_agrosik' => __ ( 'Cena' )
       
     ) );
   }
@@ -93,8 +93,8 @@ add_filter ( 'manage_cenniki_posts_columns', 'add_acf_columns' );
 
 function cena_custom_column ( $column, $post_id ) {
     switch ( $column ) {
-      case 'cena':
-        echo get_post_meta ( $post_id, 'cena', true );
+      case 'cena_netto_agrosik':
+        echo get_post_meta ( $post_id, 'cena_netto_agrosik', true );
         break;
       
     }

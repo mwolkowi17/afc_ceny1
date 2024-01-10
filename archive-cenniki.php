@@ -30,7 +30,7 @@
             <td><?php the_field('cena_netto_agrosik') ?> zł</td>
             <td><?php echo $cenaAgrosikItransport ?> zł</td>
             <td><?php echo $cenaZmarzaEuroZaokraglona?> euro</td>
-            <td> <a href="<?php the_permalink(); ?>"> Zobacz</a></td>
+            <!-- <td> <a href="<?php the_permalink(); ?>"> Zobacz</a></td> -->
            
         </tr>
         <?php endwhile; ?>
@@ -39,6 +39,5 @@
     </div>
 <?php endif; ?>
 <?php endif; ?>
-<div>End of list</div>
 <?php get_footer(); ?>
 <?php //the_field('cena_+_transport_zl') ?> 
