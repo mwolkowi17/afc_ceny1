@@ -100,3 +100,16 @@ function cena_custom_column ( $column, $post_id ) {
     }
   }
   add_action ( 'manage_cenniki_posts_custom_column', 'cena_custom_column', 10, 2 );
+
+  /**
+ * Hooks into pre_get_posts to re-order our posts.
+ */
+function wpexplorer_pre_get_posts( $query ) {
+    if ( is_admin() || ! $query->is_main_query() ) {
+        return;
+    }
+
+    $query->set( 'orderby', 'title' );
+    $query->set( 'order', 'ASC' );
+}
+add_filter( 'pre_get_posts', 'wpexplorer_pre_get_posts' );

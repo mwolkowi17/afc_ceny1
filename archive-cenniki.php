@@ -11,9 +11,8 @@
             <th scope="col">Produkt</th>
             <th scope="col">Cena netto Agrosik</th>
             <th scope="col">Cena + transport</th>
-            <th scope="col">Cena + 30%</th>
-            <th scope="col"><Details></Details></th>
-        
+            <th scope="col">Cena + marża 30%</th>
+           
         </tr>
     </thead>
     <tbody>
