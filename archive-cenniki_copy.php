@@ -17,16 +17,18 @@
     </thead>
     <tbody>
         <?php while (have_posts()) : the_post(); ?>
-            <?php 
-                require_once ("cena.php"); 
-                $cennik = new CenaProduktu(get_field('cena_netto_agrosik'));
+            <?php $cenaAgrosik = get_field('cena_netto_agrosik');
+                  $cenaAgrosikItransport=$cenaAgrosik+2.3;
+                  $cenaZmarzaZl= $cenaAgrosikItransport+$cenaAgrosikItransport*0.3;
+                  $cenaZmarzaEuro = $cenaZmarzaZl/4.3;
+                  $cenaZmarzaEuroZaokraglona =round($cenaZmarzaEuro,2);
             ?>
             <tr>
            
             <td><?php the_title() ?></td>
             <td><?php the_field('cena_netto_agrosik') ?> zł</td>
-            <td><?php echo $cennik->cena_agrosik?> zł</td>
-            <td><?php echo $cennik->cena_puls_transport_i_marza_euro_zaokraglone?> euro</td>
+            <td><?php echo $cenaAgrosikItransport ?> zł</td>
+            <td><?php echo $cenaZmarzaEuroZaokraglona?> euro</td>
             <!-- <td> <a href="<?php the_permalink(); ?>"> Zobacz</a></td> -->
            
         </tr>
