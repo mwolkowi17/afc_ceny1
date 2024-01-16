@@ -25,7 +25,7 @@
            
             <td><?php the_title() ?></td>
             <td><?php the_field('cena_netto_agrosik') ?> zł</td>
-            <td><?php echo $cennik->cena_agrosik?> zł</td>
+            <td><?php echo $cennik->cena_plus_transport?> zł</td>
             <td><?php echo $cennik->cena_puls_transport_i_marza_euro_zaokraglone?> euro</td>
             <!-- <td> <a href="<?php the_permalink(); ?>"> Zobacz</a></td> -->
            

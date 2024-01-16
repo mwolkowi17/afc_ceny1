@@ -25,6 +25,46 @@ add_action('wp_enqueue_scripts', 'child_theme_configurator_css', 10);
 
 // END ENQUEUE PARENT ACTION
 
+
+//jeśli user jest zalogowany pokazują się ceny
+if(!is_user_logged_in()){
+    remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10);
+    add_filter('woocommerce_get_price_html', 'remove_price');
+    function remove_price($price)
+    {
+        return;
+    }
+	remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart');
+    remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30);
+}
+
+//zmiana tekstu przycisku dodaj do koszyka
+// Strona pojedynczego produktu
+
+add_filter('woocommerce_product_single_add_to_cart_text', 'woocommerce_custom_single_add_to_cart_text');
+
+function woocommerce_custom_single_add_to_cart_text()
+{
+    return __('Dodaj do zamówienia', 'woocommerce');
+}
+
+// Strona sklepu
+
+add_filter('woocommerce_product_add_to_cart_text', 'woocommerce_custom_product_add_to_cart_text');
+
+function woocommerce_custom_product_add_to_cart_text()
+{
+    return __('Dodaj do zamówienia', 'woocommerce');
+}
+
+// zmiana tekstu przycisku finalnego zamówienia
+add_filter('woocommerce_order_button_text', 'woocommerce_zamawiam');
+
+function woocommerce_zamawiam()
+{
+    return __('Zamawiam', 'woocommerce');
+}
+
 /* New Custom Post Type in WP */
 
 function cenniki_cpt()
